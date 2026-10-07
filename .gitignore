@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+build/
+.vercel/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.tsbuildinfo
+next-env.d.ts
+# Full-resolution source images; the optimized copies in assets/images are what ships.
+assets/originals/
