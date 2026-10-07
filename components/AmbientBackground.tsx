@@ -42,7 +42,7 @@ type Drag = {
 };
 
 /**
- * Floating background blobs plus the "paint the grid" drag effect: dragging on empty space lights up
+ * The "paint the grid" drag effect: dragging on empty space lights up
  * grid tiles along the pointer path. Hidden (and inert) when the background effect is switched off.
  */
 export function AmbientBackground() {
@@ -173,11 +173,5 @@ export function AmbientBackground() {
     };
   }, []);
 
-  return (
-    <div className="ambient" aria-hidden="true" ref={layerRef}>
-      <i />
-      <i />
-      <i />
-    </div>
-  );
+  return <div className="ambient" aria-hidden="true" ref={layerRef} />;
 }

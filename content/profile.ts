@@ -14,9 +14,11 @@ export type Education = {
 };
 
 export type Competition = {
-  /** Full link text, including the date where there is one. */
-  title: string;
+  name: string;
+  date: string;
   url: string;
+  /** Short headline stat shown as a badge. */
+  highlight: string;
   result: string;
 };
 
@@ -61,23 +63,31 @@ export const education: Education[] = [
 
 export const competitions: Competition[] = [
   {
-    title: 'Meta Hacker Cup 2023',
+    name: 'Meta Hacker Cup',
+    date: '2023',
     url: 'https://www.facebook.com/codingcompetitions/hacker-cup/2023/certificate/1050620602603679',
+    highlight: 'Top 20%',
     result: 'Placed in the top 20% in Round 1 and participated in Round 2.'
   },
   {
-    title: 'Google Code Jam Farewell Round A · April 2023',
+    name: 'Google Code Jam Farewell Round A',
+    date: 'Apr 2023',
     url: 'https://clist.by/standings/code-jam-farewell-round-a-41185807/?search=Rejoan&detail=true',
+    highlight: '3/5 solved',
     result: 'Solved 3 of 5 problems.'
   },
   {
-    title: 'ICPC Asia Dhaka Regional Online Preliminary · February 2023',
+    name: 'ICPC Asia Dhaka Regional Online Preliminary',
+    date: 'Feb 2023',
     url: 'https://icpc.global/regionals/finder/Dhaka-Preliminary-2024/standings',
+    highlight: '#3 at BRACU',
     result: 'Ranked 3rd among BRAC University teams.'
   },
   {
-    title: 'IEEEXtreme 16.0 · October 2022',
+    name: 'IEEEXtreme 16.0',
+    date: 'Oct 2022',
     url: 'https://ieeextreme.org/ieeextreme-16-0-ranking/',
+    highlight: '#9 in BD',
     result: 'Ranked 9th in Bangladesh and 731st globally out of 6,376 teams, competing solo.'
   }
 ];

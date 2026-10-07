@@ -96,66 +96,87 @@ export default function HomePage() {
         </div>
         <div className="background-grid">
           <article className="background-card" id="experience">
-            <div className="card-label">
-              <span className="card-symbol">{'->'}</span> EXPERIENCE
-            </div>
-            {experience.map(job => (
-              <div className="editable-entry" key={job.role}>
-                <b>
-                  {job.role} ·{' '}
-                  <a href={job.org.url} {...newTab}>
-                    {job.org.name}
-                  </a>{' '}
-                  · {job.period}
-                </b>
-                <span>{job.detail}</span>
-                <p>{job.summary}</p>
-              </div>
-            ))}
+            <h3 className="card-label">
+              <span className="card-symbol">{'->'}</span> Experience
+            </h3>
+            <ol className="timeline">
+              {experience.map(job => (
+                <li className="timeline-item" key={job.role}>
+                  <div className="entry-head">
+                    <h4>{job.role}</h4>
+                    <span className="entry-period">{job.period}</span>
+                  </div>
+                  <div className="entry-meta">
+                    <a href={job.org.url} {...newTab}>
+                      {job.org.name}
+                    </a>
+                    <span>{job.detail}</span>
+                  </div>
+                  <p>{job.summary}</p>
+                </li>
+              ))}
+            </ol>
           </article>
           <article className="background-card" id="education">
-            <div className="card-label">
-              <span className="card-symbol">▤</span> EDUCATION
-            </div>
-            {education.map(entry => (
-              <div className="editable-entry" key={entry.degree}>
-                <b>
-                  {entry.degree} · {entry.period}
-                </b>
-                <span>{entry.school}</span>
-                <p>{entry.result}</p>
-              </div>
-            ))}
+            <h3 className="card-label">
+              <span className="card-symbol">▤</span> Education
+            </h3>
+            <ol className="timeline">
+              {education.map(entry => (
+                <li className="timeline-item" key={entry.degree}>
+                  <div className="entry-head">
+                    <h4>{entry.degree}</h4>
+                    <span className="entry-period">{entry.period}</span>
+                  </div>
+                  <div className="entry-meta">
+                    <span className="entry-org">{entry.school}</span>
+                    <span>{entry.result}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </article>
           <article className="background-card" id="competitions">
-            <div className="card-label">
-              <span className="card-symbol">✳</span> COMPETITIVE PROGRAMMING
-            </div>
-            {competitions.map(contest => (
-              <div className="editable-entry" key={contest.title}>
-                <b>
-                  <a href={contest.url} {...newTab}>
-                    {contest.title}
-                  </a>
-                </b>
-                <p>{contest.result}</p>
-              </div>
-            ))}
+            <h3 className="card-label">
+              <span className="card-symbol">✳</span> Competitive programming
+            </h3>
+            <ol className="timeline">
+              {competitions.map(contest => (
+                <li className="timeline-item" key={contest.name}>
+                  <div className="entry-head">
+                    <h4>
+                      <a className="entry-title-link" href={contest.url} {...newTab}>
+                        {contest.name}
+                      </a>
+                    </h4>
+                    <span className="entry-period">{contest.date}</span>
+                  </div>
+                  <div className="entry-meta">
+                    <span className="entry-org">{contest.highlight}</span>
+                  </div>
+                  <p>{contest.result}</p>
+                </li>
+              ))}
+            </ol>
           </article>
           <article className="background-card" id="skills">
-            <div className="card-label">
-              <span className="card-symbol">⌘</span> SKILLS
-            </div>
-            {skills.map(({ group, items }) => (
-              <div className="skill-group" key={group}>
-                <b>{group}</b>
-                <div className="skill-list">
-                  {items.map(item => (
-                    <span key={item}>{item}</span>
-                  ))}
+            <h3 className="card-label">
+              <span className="card-symbol">⌘</span> Skills
+            </h3>
+            <dl className="skill-groups">
+              {skills.map(({ group, items }) => (
+                <div className="skill-group" key={group}>
+                  <dt>{group}</dt>
+                  <dd>
+                    <ul className="skill-list">
+                      {items.map(item => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </dd>
                 </div>
-              </div>
-            ))}
+              ))}
+            </dl>
           </article>
         </div>
       </section>
@@ -183,7 +204,7 @@ export default function HomePage() {
           <div className="dhaka-map">
             <iframe
               title="Map centered on Dhaka, Bangladesh"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=90.365%2C23.775%2C90.46%2C23.845&layer=mapnik&marker=23.8103%2C90.4125"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=88.9%2C22.5%2C91.9%2C25.0&layer=mapnik&marker=23.8103%2C90.4125"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
