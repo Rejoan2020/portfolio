@@ -1,10 +1,11 @@
 // Shared by the server (reads cookies to render the right theme) and the client (writes them).
 // Palette values live in app/globals.css; only what the server or browser chrome needs is here.
 
+/** `accent` is the flavor's default, as one of the ACCENTS values below. */
 export const FLAVORS = {
-  latte: { label: 'Latte', accent: '#8839ef', themeColor: '#eff1f5' },
-  frappe: { label: 'Frappé', accent: '#ca9ee6', themeColor: '#303446' },
-  macchiato: { label: 'Macchiato', accent: '#f5bde6', themeColor: '#24273a' },
+  latte: { label: 'Latte', accent: '#cba6f7', themeColor: '#e6e9ef' },
+  frappe: { label: 'Frappé', accent: '#cba6f7', themeColor: '#232634' },
+  macchiato: { label: 'Macchiato', accent: '#f5c2e7', themeColor: '#181926' },
   mocha: { label: 'Mocha', accent: '#cba6f7', themeColor: '#11111b' }
 } as const;
 
@@ -28,6 +29,15 @@ export const ACCENTS = [
   { name: 'Blue', value: '#89b4fa' },
   { name: 'Lavender', value: '#b4befe' }
 ] as const;
+
+/**
+ * Accents are stored by their Mocha value but rendered through the active flavor's palette variable
+ * (globals.css), so e.g. Pink is Latte's pink on Latte instead of a Mocha pastel on a light page.
+ */
+export function accentVar(value: string): string {
+  const option = ACCENTS.find(accent => accent.value === value);
+  return option ? `var(--${option.name.toLowerCase()})` : value;
+}
 
 export const COOKIES = {
   flavor: 'theme',

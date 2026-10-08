@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import type { CSSProperties, ReactNode } from 'react';
 import { site } from '@/lib/site';
-import { FLAVORS } from '@/lib/theme';
+import { accentVar, FLAVORS } from '@/lib/theme';
 import { getThemePrefs } from '@/lib/theme.server';
 import './globals.css';
 
@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       className={mono.variable}
       data-flavor={theme.flavor}
       data-effects={theme.effects ? undefined : 'off'}
-      style={theme.accent ? ({ '--accent': theme.accent } as CSSProperties) : undefined}
+      style={theme.accent ? ({ '--accent': accentVar(theme.accent) } as CSSProperties) : undefined}
     >
       <body>{children}</body>
     </html>

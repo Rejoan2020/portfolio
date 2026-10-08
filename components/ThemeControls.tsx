@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ACCENTS, COOKIES, FLAVORS, type Flavor, type ThemePrefs } from '@/lib/theme';
+import { ACCENTS, accentVar, COOKIES, FLAVORS, type Flavor, type ThemePrefs } from '@/lib/theme';
 
 const ONE_YEAR = 60 * 60 * 24 * 365;
 
@@ -18,7 +18,7 @@ function applyFlavor(flavor: Flavor) {
 }
 
 function applyAccent(accent: string) {
-  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--accent', accentVar(accent));
   persist(COOKIES.accent, accent);
 }
 
@@ -84,7 +84,7 @@ export function ThemeControls({ initial }: { initial: ThemePrefs }) {
               title={option.name}
               className={option.value === shownAccent ? 'selected' : undefined}
               aria-pressed={option.value === shownAccent}
-              style={{ backgroundColor: option.value }}
+              style={{ backgroundColor: accentVar(option.value) }}
               onClick={() => chooseAccent(option.value)}
             />
           ))}

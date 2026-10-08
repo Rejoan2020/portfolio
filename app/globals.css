@@ -5,56 +5,126 @@
 }
 :root {
   color-scheme: dark;
+  /* Catppuccin Mocha. Every flavor maps the same way: page = crust, panels = mantle, raised = base. */
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
   --bg: #11111b;
   --panel: #181825;
   --panel2: #1e1e2e;
   --text: #cdd6f4;
+  --subtext: #a6adc8;
   --muted: #939ab4;
+  --faint: #7f849c;
   --line: #29293b;
-  --accent: #cba6f7;
-  --green: #a6e3a1;
-  --blue: #89b4fa;
-  --peach: #fab387;
+  --line-strong: #333347;
+  --rose: #f0c7cc;
+  --on-accent: #1e1e2e;
+  --shadow: #0006;
+  --accent: var(--mauve);
   --font: var(--font-jetbrains-mono), monospace;
   --mono: var(--font-jetbrains-mono), monospace;
 }
 /* Catppuccin flavors, selected by data-flavor on <html> (see lib/theme.ts). Mocha is the default above. */
 :root[data-flavor="frappe"] {
-  --bg: #303446;
-  --panel: #292c3c;
-  --panel2: #414559;
-  --text: #c6d0f5;
-  --muted: #a5adce;
-  --line: #494d64;
-  --accent: #ca9ee6;
-  --green: #a6d189;
-  --blue: #8caaee;
+  --rosewater: #f2d5cf;
+  --flamingo: #eebebe;
+  --pink: #f4b8e4;
+  --mauve: #ca9ee6;
+  --red: #e78284;
+  --maroon: #ea999c;
   --peach: #ef9f76;
-}
-:root[data-flavor="latte"] {
-  color-scheme: light;
-  --bg: #eff1f5;
-  --panel: #e6e9ef;
-  --panel2: #dce0e8;
-  --text: #4c4f69;
-  --muted: #7c7f93;
-  --line: #ccd0da;
-  --accent: #8839ef;
-  --green: #40a02b;
-  --blue: #1e66f5;
-  --peach: #fe640b;
+  --yellow: #e5c890;
+  --green: #a6d189;
+  --teal: #81c8be;
+  --sky: #99d1db;
+  --sapphire: #85c1dc;
+  --blue: #8caaee;
+  --lavender: #babbf1;
+  --bg: #232634;
+  --panel: #292c3c;
+  --panel2: #303446;
+  --text: #c6d0f5;
+  --subtext: #a5adce;
+  --muted: #949cbb;
+  --faint: #838ba7;
+  --line: #383c4f;
+  --line-strong: #414559;
+  --rose: #eebebe;
+  --on-accent: #232634;
 }
 :root[data-flavor="macchiato"] {
-  --bg: #24273a;
-  --panel: #1e2030;
-  --panel2: #363a4f;
-  --text: #cad3f5;
-  --muted: #a5adcb;
-  --line: #494d64;
-  --accent: #f5bde6;
-  --green: #a6da95;
-  --blue: #8aadf4;
+  --rosewater: #f4dbd6;
+  --flamingo: #f0c6c6;
+  --pink: #f5bde6;
+  --mauve: #c6a0f6;
+  --red: #ed8796;
+  --maroon: #ee99a0;
   --peach: #f5a97f;
+  --yellow: #eed49f;
+  --green: #a6da95;
+  --teal: #8bd5ca;
+  --sky: #91d7e3;
+  --sapphire: #7dc4e4;
+  --blue: #8aadf4;
+  --lavender: #b7bdf8;
+  --bg: #181926;
+  --panel: #1e2030;
+  --panel2: #24273a;
+  --text: #cad3f5;
+  --subtext: #a5adcb;
+  --muted: #939ab7;
+  --faint: #8087a2;
+  --line: #2d3044;
+  --line-strong: #363a4f;
+  --rose: #f0c6c6;
+  --on-accent: #181926;
+  --accent: var(--pink);
+}
+/* Light: the ladder inverts, so raised surfaces get lighter instead of the page getting darker. */
+:root[data-flavor="latte"] {
+  color-scheme: light;
+  --rosewater: #dc8a78;
+  --flamingo: #dd7878;
+  --pink: #ea76cb;
+  --mauve: #8839ef;
+  --red: #d20f39;
+  --maroon: #e64553;
+  --peach: #fe640b;
+  --yellow: #df8e1d;
+  --green: #40a02b;
+  --teal: #179299;
+  --sky: #04a5e5;
+  --sapphire: #209fb5;
+  --blue: #1e66f5;
+  --lavender: #7287fd;
+  --bg: #e6e9ef;
+  --panel: #eff1f5;
+  --panel2: #f7f8fa;
+  --text: #4c4f69;
+  --subtext: #5c5f77;
+  --muted: #6c6f85;
+  --faint: #7c7f93;
+  --line: #ccd0da;
+  --line-strong: #bcc0cc;
+  --rose: #d05f6f;
+  --on-accent: #eff1f5;
+  --shadow: #4c4f6926;
+}
+:root[data-flavor="latte"] .location-card .dhaka-map iframe {
+  filter: grayscale(1) contrast(1.02);
+  opacity: 0.9;
 }
 :root[data-effects="off"] .ambient {
   display: none;
@@ -109,7 +179,7 @@ a {
   display: grid;
   place-items: center;
   background: var(--accent);
-  color: #1e1e2e;
+  color: var(--on-accent);
   font-size: 17px;
 }
 .article small,
@@ -203,7 +273,7 @@ footer {
 }
 .button.primary {
   background: var(--accent);
-  color: #1e1e2e;
+  color: var(--on-accent);
 }
 .button span {
   font-size: 15px;
@@ -224,7 +294,7 @@ footer {
   margin-top: 37px;
 }
 .socials a {
-  color: #a6adc8;
+  color: var(--subtext);
 }
 .article i,
 .socials a span {
@@ -319,7 +389,7 @@ footer {
 .project-card {
   min-width: 0;
   border: 1px solid var(--line);
-  background: #151521;
+  background: color-mix(in srgb, var(--bg) 50%, var(--panel));
   overflow: hidden;
   transition:
     transform 0.25s,
@@ -347,8 +417,8 @@ footer {
 .tags span {
   font: 8px var(--mono);
   padding: 4px 7px;
-  border: 1px solid #2d2c3d;
-  color: #9290a7;
+  border: 1px solid var(--line);
+  color: var(--muted);
   border-radius: 4px;
 }
 .article {
@@ -361,7 +431,7 @@ footer {
 }
 .article time {
   font: 8px var(--mono);
-  color: #85839a;
+  color: var(--faint);
   padding-top: 4px;
 }
 .article span {
@@ -381,7 +451,11 @@ footer {
 }
 .dashboard {
   border: 1px solid var(--line);
-  background: linear-gradient(145deg, #191927, #151521);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--panel) 80%, var(--panel2)),
+    color-mix(in srgb, var(--bg) 50%, var(--panel))
+  );
   border-radius: 10px;
   padding: 23px 23px 18px;
   align-self: start;
@@ -391,7 +465,11 @@ footer {
 }
 .contact {
   position: relative;
-  background: linear-gradient(115deg, #211e30, #191824 70%);
+  background: linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--accent) 6%, var(--panel)),
+    var(--panel) 70%
+  );
   display: grid;
 }
 .contact h2 {
@@ -410,7 +488,7 @@ footer {
 footer {
   height: 82px;
   border-top: 1px solid var(--line);
-  color: #77758b;
+  color: var(--faint);
   font: 9px var(--mono);
 }
 footer .brand {
@@ -458,7 +536,7 @@ footer .brand-mark {
     right: 0;
     z-index: 5;
     padding: 17px 20px;
-    background: #181825;
+    background: var(--panel);
     border-bottom: 1px solid var(--line);
     gap: 20px;
     justify-content: center;
@@ -571,7 +649,7 @@ footer .brand-mark {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 9px;
-  box-shadow: 0 14px 35px #0006;
+  box-shadow: 0 14px 35px var(--shadow);
   z-index: 8;
 }
 .popover-title {
@@ -608,11 +686,17 @@ footer .brand-mark {
   border-radius: 50%;
   background: var(--accent);
 }
+.theme-options [data-theme="latte"] i {
+  background: #8839ef;
+}
 .theme-options [data-theme="frappe"] i {
   background: #ca9ee6;
 }
-.theme-options [data-theme="latte"] i {
-  background: #8839ef;
+.theme-options [data-theme="macchiato"] i {
+  background: #f5bde6;
+}
+.theme-options [data-theme="mocha"] i {
+  background: #cba6f7;
 }
 .effect-toggle,
 .more-menu a {
@@ -1196,7 +1280,7 @@ footer .brand-mark {
 .accent-options button {
   width: 17px;
   height: 17px;
-  border: 1px solid #ffffff30;
+  border: 1px solid color-mix(in srgb, var(--text) 19%, transparent);
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
@@ -1241,7 +1325,7 @@ footer .brand-mark {
   display: block;
   width: 100%;
   height: 100%;
-  background: #151521;
+  background: color-mix(in srgb, var(--bg) 50%, var(--panel));
   object-fit: cover;
   transition: transform 0.35s ease;
 }
@@ -1290,24 +1374,24 @@ footer .brand-mark {
   border: 0;
   font-size: 9px;
   padding: 4px 7px;
-  background: #28283a;
-  color: #cdd6f4;
+  background: color-mix(in srgb, var(--text) 9%, var(--bg));
+  color: var(--text);
 }
 .project-card .tags span:nth-child(4n + 1) {
-  background: #253b35;
-  color: #a6e3a1;
+  background: color-mix(in srgb, var(--green) 16%, var(--bg));
+  color: var(--green);
 }
 .project-card .tags span:nth-child(4n + 2) {
-  background: #3b2d3b;
-  color: #f5c2e7;
+  background: color-mix(in srgb, var(--pink) 16%, var(--bg));
+  color: var(--pink);
 }
 .project-card .tags span:nth-child(4n + 3) {
-  background: #2a3646;
-  color: #89b4fa;
+  background: color-mix(in srgb, var(--blue) 16%, var(--bg));
+  color: var(--blue);
 }
 .project-card .tags span:nth-child(4n) {
-  background: #423340;
-  color: #fab387;
+  background: color-mix(in srgb, var(--peach) 16%, var(--bg));
+  color: var(--peach);
 }
 .project-card {
   padding: 0;
@@ -1331,7 +1415,7 @@ footer .brand-mark {
 }
 .project-card:hover {
   transform: none;
-  border-color: #4b405e;
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--bg));
 }
 .project-card:hover .image-visual img {
   transform: scale(1.045);
@@ -1609,7 +1693,7 @@ html.dragging-background * {
   position: relative;
   min-width: 0;
   padding: 19px 20px;
-  border: 1px solid #333347;
+  border: 1px solid var(--line-strong);
   border-radius: 15px;
   background: color-mix(in srgb, var(--panel) 72%, var(--bg));
   overflow: hidden;
@@ -1638,7 +1722,7 @@ html.dragging-background * {
 }
 .connect-card p {
   margin: 0 0 17px;
-  color: #a5abc3;
+  color: var(--subtext);
   line-height: 1.6;
 }
 .connect-card .button {
@@ -1648,8 +1732,8 @@ html.dragging-background * {
   gap: 10px;
   border-radius: 7px;
   padding: 9px 12px;
-  background: #e5bfc0;
-  color: #1e1e2e;
+  background: var(--rose);
+  color: var(--on-accent);
   font: 12px var(--mono);
   font-weight: 500;
   transition:
@@ -1679,7 +1763,7 @@ html.dragging-background * {
 .location-card .dhaka-map {
   border: 0;
   border-radius: 9px;
-  background: #15151d;
+  background: color-mix(in srgb, var(--bg) 50%, var(--panel));
 }
 .location-card .dhaka-map iframe {
   height: 100%;
@@ -1693,11 +1777,11 @@ html.dragging-background * {
   justify-content: space-between;
   gap: 6px;
   padding-top: 8px;
-  color: #a5abc3;
+  color: var(--subtext);
   font: 9px var(--mono);
 }
 .location-footer time {
-  color: #edc7c7;
+  color: var(--rose);
 }
 .click-card {
   display: flex;
@@ -1712,16 +1796,16 @@ html.dragging-background * {
   height: 16px;
   display: grid;
   place-items: center;
-  border: 1px solid #a5abc3;
+  border: 1px solid var(--subtext);
   border-radius: 50%;
-  color: #a5abc3;
+  color: var(--subtext);
   font:
     italic 11px Georgia,
     serif;
   cursor: help;
 }
 .global-click-count {
-  color: #f0c7cc;
+  color: var(--rose);
   font-size: clamp(28px, 3.6vw, 44px);
   line-height: 1.2;
   font-weight: 700;
@@ -1734,8 +1818,8 @@ html.dragging-background * {
   min-height: 56px;
   border: 0;
   border-radius: 14px;
-  background: #f0c7cc;
-  color: #1e1e2e;
+  background: var(--rose);
+  color: var(--on-accent);
   font: 700 13px var(--mono);
   text-transform: uppercase;
   cursor: pointer;
@@ -1752,7 +1836,7 @@ html.dragging-background * {
 }
 .personal-click-count {
   margin: 24px 0 0;
-  color: #a5abc3;
+  color: var(--subtext);
   font: 10px var(--mono);
   text-align: center;
 }
@@ -2212,7 +2296,7 @@ html.dragging-background * {
   inset: 0;
   z-index: 19;
   display: block;
-  background: rgba(17, 17, 27, 0.42);
+  background: color-mix(in srgb, var(--bg) 42%, transparent);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -2232,7 +2316,7 @@ html.dragging-background * {
   border: 0;
   border-left: 1px solid var(--line);
   border-radius: 0;
-  box-shadow: -12px 0 32px #0003;
+  box-shadow: -12px 0 32px var(--shadow);
   transform: translateX(102%);
   visibility: hidden;
   transition:
@@ -2313,9 +2397,6 @@ html.dragging-background * {
 .drawer-theme .theme-options button:nth-child(4) {
   grid-column: 1/-1;
 }
-.drawer-theme .theme-options [data-theme="macchiato"] i {
-  background: #f5bde6;
-}
 .drawer-theme .theme-options button.selected {
   background: 0 0;
   border-color: var(--peach);
@@ -2333,7 +2414,7 @@ html.dragging-background * {
   width: 26px;
   height: 26px;
   justify-self: center;
-  border: 1px solid #ffffff22;
+  border: 1px solid color-mix(in srgb, var(--text) 13%, transparent);
   border-radius: 6px;
 }
 .drawer-theme .accent-options button.selected {
@@ -2867,7 +2948,7 @@ footer.portfolio-footer {
     padding: 8px;
     border-top: 0;
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 18px 28px #0005;
+    box-shadow: 0 18px 28px var(--shadow);
     font-size: 16px;
   }
   .hero,
