@@ -9,7 +9,8 @@ export const site = {
   email: 'rejoan523@gmail.com',
   links: {
     github: 'https://github.com/Rejoan2020',
-    linkedin: 'https://www.linkedin.com/in/rejoan-rahman/'
+    linkedin: 'https://www.linkedin.com/in/rejoan-rahman/',
+    strava: 'https://www.strava.com/athletes/958201866'
   },
   url: siteUrl()
 } as const;

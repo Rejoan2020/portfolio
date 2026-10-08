@@ -99,3 +99,20 @@ export function FolderIcon(props: IconProps) {
     </Icon>
   );
 }
+
+export function RunIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <circle cx="15" cy="4.5" r="2" />
+      <path d="m7 21 3.5-5.5L14 18v3.5M5 11.5 8.5 8h5l2.5 4 3 1M10.5 15.5 13 8" />
+    </Icon>
+  );
+}
+
+export function StravaIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M15.39 17.94 13.3 13.83h-3.07L15.39 24l5.15-10.17h-3.07M10.46 0l-7 13.83h4.17l2.83-5.6 2.84 5.6h4.17Z" />
+    </Icon>
+  );
+}
