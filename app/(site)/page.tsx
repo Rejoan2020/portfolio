@@ -5,7 +5,7 @@ import { CalendarDotsIcon, CalendarIcon, GitHubIcon, LinkedInIcon, PersonIcon, P
 import { LocalClock } from '@/components/LocalClock';
 import { ProjectCard } from '@/components/ProjectCard';
 import { competitions, education, experience, skills } from '@/content/profile';
-import { listedProjects } from '@/content/projects';
+import { featuredProjects } from '@/content/projects';
 import { newTab, site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -80,7 +80,7 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="project-grid">
-          {listedProjects.map(project => (
+          {featuredProjects.map(project => (
             <ProjectCard key={project.slug} project={project} showCategory />
           ))}
         </div>

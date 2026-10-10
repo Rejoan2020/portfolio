@@ -30,15 +30,14 @@ const dateFormat = new Intl.DateTimeFormat('en-US', { month: 'long', day: '2-dig
 export default async function ProjectPage({ params }: Props) {
   const project = getProject((await params).slug);
   if (!project) notFound();
-  const own = project.ownership === 'own';
 
   return (
     <main id="top" className="project-detail-main">
-      <article className={own ? 'anubis-detail project-detail' : 'anubis-detail'}>
+      <article className="project-detail">
         <Link className="detail-back" href="/projects">
           <span aria-hidden="true">←</span> All projects
         </Link>
-        <figure className="anubis-preview">
+        <figure className="detail-preview">
           <Image
             src={project.image}
             alt={project.imageAlt}
@@ -72,7 +71,7 @@ export default async function ProjectPage({ params }: Props) {
               </a>
             )}
           </div>
-          <div className="detail-tags" aria-label={own ? 'Technology' : 'Project tags'}>
+          <div className="detail-tags" aria-label="Technology">
             <TagIcon className="tag-icon" />
             {project.tags.map(tag => (
               <span key={tag}>{tag}</span>

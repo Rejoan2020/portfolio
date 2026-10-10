@@ -61,7 +61,7 @@ proxy.ts                  Per-request nonce and Content-Security-Policy
 - POSTs must be same-origin and are rate limited to 20 per 10 seconds per IP.
 - The UI updates optimistically and rolls back if a request fails.
 
-**Legacy URLs.** The old `.html` pages and root-level project URLs (`/zoinpark`, `/anubis.html`, …) permanently redirect to their new routes.
+**Legacy URLs.** The old `.html` pages and root-level project URLs (`/zoinpark`, …) permanently redirect to their new routes.
 
 ## Deploying to Vercel
 

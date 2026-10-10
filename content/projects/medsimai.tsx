@@ -12,7 +12,6 @@ export const medsimai: Project = {
       'An AI-powered medical simulation platform where students practice clinical assessment and patient diagnosis.',
     imageAlt: 'MedSimAi student dashboard with clinical cases, average score, and session statistics'
   },
-  ownership: 'own',
   image,
   imageAlt: 'MedSimAi student dashboard with recommended clinical cases, scores, and sessions',
   tags: ['Next.js', 'React', 'Auth.js', 'Gemini API', 'REST API', 'Tailwind CSS', 'MongoDB'],

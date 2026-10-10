@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 // Slugs that used to live at the site root (/zoinpark, /zoinpark.html) before /projects/[slug].
-const legacyProjectSlugs = ['zoinpark', 'medsimai', 'anubis'];
+const legacyProjectSlugs = ['zoinpark', 'medsimai'];
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,

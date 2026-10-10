@@ -12,7 +12,7 @@ export const zoinpark: Project = {
       'A modern crypto platform for staking, rewards, weekly challenges, transaction history, and a responsive dashboard.',
     imageAlt: 'Zoinpark crypto dashboard showing staking balance, weekly challenges, and reward cards'
   },
-  ownership: 'own',
+  featured: true,
   image,
   imageAlt: 'Zoinpark crypto dashboard showing balance, weekly challenges, and reward cards',
   tags: ['Next.js', 'React', 'MongoDB', 'NextAuth', 'Tailwind CSS', 'Server Actions', 'Resend'],

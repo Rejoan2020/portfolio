@@ -12,8 +12,8 @@ export type Project = {
     summary: string;
     imageAlt: string;
   };
-  /** 'own' is my work; 'external' is a write-up of someone else's open-source project. */
-  ownership: 'own' | 'external';
+  /** Also shown in the home page's Featured Projects section. Requires `card`. */
+  featured?: boolean;
   image: StaticImageData;
   imageAlt: string;
   tags: string[];

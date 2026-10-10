@@ -2497,7 +2497,7 @@ html.dragging-background * {
   width: 100%;
   max-width: none !important;
 }
-.anubis-detail {
+.project-detail {
   width: min(100%, 640px);
   margin: 0 auto;
   padding: 34px 0 76px;
@@ -2522,7 +2522,7 @@ html.dragging-background * {
 .detail-back span {
   font-size: 16px;
 }
-.anubis-preview {
+.detail-preview {
   width: 100%;
   aspect-ratio: 1.8/1;
   margin: 0 0 24px;
@@ -2530,7 +2530,7 @@ html.dragging-background * {
   border-radius: 9px;
   background: #a8b5bf;
 }
-.anubis-preview img {
+.detail-preview img {
   display: block;
   width: 100%;
   height: 100%;
@@ -2684,10 +2684,10 @@ html.dragging-background * {
   line-height: 1.7;
 }
 @media (max-width: 639px) {
-  .anubis-detail {
+  .project-detail {
     padding: 24px 0 55px;
   }
-  .anubis-preview {
+  .detail-preview {
     margin-bottom: 20px;
   }
   .detail-header h1 {
@@ -3129,11 +3129,11 @@ footer.portfolio-footer {
   .projects-page .section-heading h2 {
     font-size: 26px;
   }
-  .project-detail-main .anubis-detail {
+  .project-detail-main .project-detail {
     width: 100%;
     padding: 24px 0 42px;
   }
-  .anubis-preview {
+  .detail-preview {
     aspect-ratio: 1.55/1;
   }
   .detail-content {
