@@ -6,7 +6,7 @@ import type { Project } from './types';
 export type { Project } from './types';
 
 /** All project pages, in display order. */
-export const projects: Project[] = [jajabor, zoinpark, medsimai];
+export const projects: Project[] = [zoinpark, jajabor, medsimai];
 
 /** Projects that appear in the home and /projects listings. */
 export const listedProjects = projects.filter(
