@@ -13,7 +13,6 @@ export const jajabor: Project = {
       'A free, honest guide to travelling in Bangladesh, with destination guides and stories written by real travellers.',
     imageAlt: 'Jajabor home page with a destination search bar above photos of Bangladeshi landscapes'
   },
-  featured: true,
   image,
   imageAlt: 'Jajabor home page headline, destination search, and a strip of Bangladesh travel photos',
   tags: ['Next.js', 'React', 'Payload CMS', 'Better Auth', 'MongoDB', 'Cloudinary', 'Tailwind CSS'],
