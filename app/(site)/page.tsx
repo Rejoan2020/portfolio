@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
+import bjetLogo from '@/assets/images/logo-bjet.png';
+import bracLogo from '@/assets/images/logo-brac-university.png';
+import outlierLogo from '@/assets/images/logo-outlier.png';
 import { ClickCounter } from '@/components/ClickCounter';
 import { CalendarDotsIcon, CalendarIcon, GitHubIcon, LinkedInIcon, PersonIcon, PinIcon } from '@/components/icons';
 import { LocalClock } from '@/components/LocalClock';
 import { ProjectCard } from '@/components/ProjectCard';
-import { competitions, education, experience, skills } from '@/content/profile';
 import { featuredProjects } from '@/content/projects';
 import { newTab, site } from '@/lib/site';
 
@@ -23,6 +26,12 @@ const personJsonLd = {
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'BRAC University' },
   sameAs: [site.links.github, site.links.linkedin]
 };
+
+const affiliations = [
+  { name: 'Outlier', url: 'https://outlier.ai/', note: 'Contract', logo: outlierLogo, shape: 'round' },
+  { name: 'B-JET', url: 'https://bjet.org/', note: 'Past', logo: bjetLogo, shape: 'wide' },
+  { name: 'BRAC University', url: 'https://www.bracu.ac.bd/', note: 'Alumni', logo: bracLogo, shape: 'tile' }
+];
 
 export default function HomePage() {
   return (
@@ -48,8 +57,36 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="hero-body">
-            A developer interested in the details that make digital products feel effortless. I work across the stack,
-            from resilient backends to the small interactions people remember.
+            I’m a software engineer based in Dhaka who loves taking products all the way from a rough idea to something
+            real people use. I studied CSE at{' '}
+            <a className="hero-link" href="https://www.bracu.ac.bd/" {...newTab}>
+              BRAC University
+            </a>
+            , learned Japanese and IT through{' '}
+            <a className="hero-link" href="https://bjet.org/" {...newTab}>
+              B-JET
+            </a>
+            , and most recently did contract work with{' '}
+            <a className="hero-link" href="https://outlier.ai/" {...newTab}>
+              Outlier
+            </a>
+            , writing and reviewing code to help train AI models. I also love competitive programming. I placed 9th in Bangladesh at{' '}
+            <a className="hero-link" href="https://ieeextreme.org/ieeextreme-16-0-ranking/" {...newTab}>
+              IEEEXtreme
+            </a>
+            , came third among BRAC University teams in the{' '}
+            <a className="hero-link" href="https://icpc.global/regionals/finder/Dhaka-Preliminary-2024/standings" {...newTab}>
+              ICPC
+            </a>{' '}
+            Dhaka preliminary, and qualified for Round 2 of{' '}
+            <a
+              className="hero-link"
+              href="https://www.facebook.com/codingcompetitions/hacker-cup/2023/certificate/1050620602603679"
+              {...newTab}
+            >
+              Meta Hacker Cup
+            </a>
+            .
           </p>
           <div className="socials">
             <a href={site.links.github} {...newTab}>
@@ -65,6 +102,17 @@ export default function HomePage() {
               More about me
             </Link>
           </div>
+          <ul className="affiliations" aria-label="Where I’ve worked and studied">
+            {affiliations.map(org => (
+              <li key={org.name}>
+                <a href={org.url} {...newTab}>
+                  <Image className={`affiliation-logo ${org.shape}`} src={org.logo} alt="" />
+                  {org.name}
+                  <span className="affiliation-note">({org.note})</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -83,87 +131,6 @@ export default function HomePage() {
           {featuredProjects.map(project => (
             <ProjectCard key={project.slug} project={project} showCategory />
           ))}
-        </div>
-      </section>
-
-      <section className="section background" id="background">
-        <div className="section-heading">
-          <div>
-            <h2>
-              Experience &amp; background<span className="accent">.</span>
-            </h2>
-          </div>
-        </div>
-        <div className="resume">
-          <div className="resume-row" id="experience">
-            <h3 className="resume-label">Experience</h3>
-            <ol className="resume-entries">
-              {experience.map(job => (
-                <li className="resume-entry" key={job.role}>
-                  <span className="resume-date">{job.period}</span>
-                  <div>
-                    <h4>{job.role}</h4>
-                    <p className="resume-meta">
-                      <a href={job.org.url} {...newTab}>
-                        {job.org.name}
-                      </a>
-                      <span>{job.detail}</span>
-                    </p>
-                    <p className="resume-summary">{job.summary}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="resume-row" id="education">
-            <h3 className="resume-label">Education</h3>
-            <ol className="resume-entries">
-              {education.map(entry => (
-                <li className="resume-entry" key={entry.degree}>
-                  <span className="resume-date">{entry.period}</span>
-                  <div>
-                    <h4>{entry.degree}</h4>
-                    <p className="resume-meta">
-                      <span>{entry.school}</span>
-                      <span>{entry.result}</span>
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="resume-row" id="competitions">
-            <h3 className="resume-label">Competitive programming</h3>
-            <ul className="contest-grid">
-              {competitions.map(contest => (
-                <li key={contest.name}>
-                  <a className="contest" href={contest.url} {...newTab}>
-                    <span className="contest-stat">{contest.highlight}</span>
-                    <span className="contest-caption">{contest.result}</span>
-                    <span className="contest-name">{contest.name}</span>
-                    <span className="contest-date">{contest.date}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="resume-row" id="skills">
-            <h3 className="resume-label">Skills</h3>
-            <dl className="stack">
-              {skills.map(({ group, items }) => (
-                <div className="stack-row" key={group}>
-                  <dt>{group}</dt>
-                  <dd>
-                    <ul className="stack-list">
-                      {items.map(item => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
         </div>
       </section>
 

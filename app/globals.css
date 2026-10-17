@@ -1038,212 +1038,83 @@ footer .brand-mark {
 .all-projects-link:hover > span:last-child {
   color: var(--accent) !important;
 }
-.background.section {
-  padding-top: 32px;
-  padding-bottom: 70px;
+/* Hero: inline links to the places in the summary, and the row of affiliations under the socials. */
+.hero-link {
+  color: var(--peach);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: color-mix(in srgb, var(--peach) 60%, transparent);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition:
+    color 0.2s,
+    text-decoration-color 0.2s;
 }
-/* Experience & background: a ruled résumé. Each row is a label column beside its entries,
-   and entries share a date gutter so every row lines up on the same two columns. */
-.resume {
-  --resume-label: 200px;
-  --resume-gutter: 150px;
-  border-bottom: 1px solid var(--line);
-}
-.resume h3,
-.resume h4,
-.resume p,
-.resume ol,
-.resume ul,
-.resume dl,
-.resume dd {
-  margin: 0;
-}
-.resume ol,
-.resume ul {
-  list-style: none;
-  padding: 0;
-}
-.resume-row {
-  display: grid;
-  grid-template-columns: var(--resume-label) minmax(0, 1fr);
-  gap: 16px;
-  padding: 30px 0;
-  border-top: 1px solid var(--line);
-}
-.resume-label {
-  padding-top: 2px;
-  color: var(--muted);
-  font: 600 11px var(--mono);
-  letter-spacing: 1.4px;
-  line-height: 1.6;
-  text-transform: uppercase;
-}
-.resume-entries {
-  display: grid;
-  gap: 26px;
-}
-.resume-entry {
-  display: grid;
-  grid-template-columns: var(--resume-gutter) minmax(0, 1fr);
-  gap: 16px;
-}
-.resume-date {
-  padding-top: 3px;
-  color: var(--faint);
-  font: 12px var(--mono);
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
-.resume-entry h4 {
-  color: var(--text);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.resume-meta {
-  margin-top: 2px !important;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-}
-.resume-meta > * + *::before {
-  content: '·';
-  margin: 0 9px;
-  color: var(--faint);
-}
-.resume-meta a {
+.hero-link:hover,
+.hero-link:focus-visible {
   color: var(--accent);
-  transition: opacity 0.2s;
+  text-decoration-color: var(--accent);
 }
-.resume-meta a:hover {
-  opacity: 0.75;
-}
-.resume-summary {
-  max-width: 62ch;
-  margin-top: 10px !important;
-  color: var(--subtext);
-  font-size: 13px;
-  line-height: 1.75;
-}
-/* Competitive programming: the result is the headline, the contest is the caption. */
-.contest-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-}
-.contest {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding-left: 16px;
-  border-left: 1px solid var(--line);
-  transition: border-color 0.2s;
-}
-.contest:hover {
-  border-color: var(--accent);
-}
-.contest-stat {
-  color: var(--text);
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
-  transition: color 0.2s;
-}
-.contest:hover .contest-stat {
-  color: var(--accent);
-}
-.contest-caption {
-  margin-top: 8px;
-  color: var(--subtext);
-  font-size: 12px;
-  line-height: 1.6;
-}
-.contest-name {
-  margin-top: auto;
-  padding-top: 16px;
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.contest-date {
-  margin-top: 2px;
-  color: var(--faint);
-  font: 12px var(--mono);
-}
-/* Skills: plain lists on the same date gutter as the entries above. */
-.stack {
-  display: grid;
-  gap: 12px;
-}
-.stack-row {
-  display: grid;
-  grid-template-columns: var(--resume-gutter) minmax(0, 1fr);
-  gap: 16px;
-  align-items: baseline;
-}
-.stack-row dt {
-  color: var(--faint);
-  font: 12px var(--mono);
-}
-.stack-list {
+.affiliations {
   display: flex;
   flex-wrap: wrap;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.7;
+  align-items: center;
+  gap: 12px 0;
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
 }
-.stack-list li + li::before {
+.affiliations li {
+  display: flex;
+  align-items: center;
+}
+.affiliations li + li::before {
   content: '/';
-  margin: 0 10px;
+  margin: 0 18px;
+  color: var(--peach);
+}
+.affiliations a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--subtext);
+  font: 13px var(--mono);
+  transition: color 0.2s;
+}
+.affiliations a:hover {
+  color: var(--text);
+}
+.affiliation-logo {
+  width: auto;
+  height: 24px;
+}
+.affiliation-logo.round {
+  border-radius: 50%;
+}
+.affiliation-logo.wide {
+  height: 20px;
+  border-radius: 4px;
+}
+/* The BRAC crest has black strokes, so it sits on a light tile to stay visible on dark themes. */
+.affiliation-logo.tile {
+  height: 26px;
+  padding: 2px;
+  border-radius: 5px;
+  background: #fff;
+}
+.affiliation-note {
   color: var(--faint);
+  font-size: 11px;
 }
 .more-menu {
   max-height: 70vh;
 }
-@media (max-width: 1023px) {
-  .resume {
-    --resume-label: 150px;
-    --resume-gutter: 140px;
-  }
-  .contest-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 28px;
-  }
-}
 @media (max-width: 639px) {
-  .background.section {
-    padding-top: 22px;
-    padding-bottom: 48px;
+  .affiliations {
+    margin-top: 32px;
   }
-  .resume-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-    padding: 24px 0;
-  }
-  .resume-entry {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2px;
-  }
-  .resume-date {
-    padding-top: 0;
-  }
-  .resume-summary {
-    font-size: 14px;
-  }
-  .contest-grid {
-    gap: 24px 16px;
-  }
-  .contest {
-    padding-left: 12px;
-  }
-  .contest-stat {
-    font-size: 26px;
-  }
-  .stack-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2px;
+  .affiliations li + li::before {
+    margin: 0 12px;
   }
   .more-menu {
     min-width: 150px;
