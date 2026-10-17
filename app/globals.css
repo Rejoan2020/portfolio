@@ -1042,198 +1042,174 @@ footer .brand-mark {
   padding-top: 32px;
   padding-bottom: 70px;
 }
-.background-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 17px;
+/* Experience & background: a ruled résumé. Each row is a label column beside its entries,
+   and entries share a date gutter so every row lines up on the same two columns. */
+.resume {
+  --resume-label: 200px;
+  --resume-gutter: 150px;
+  border-bottom: 1px solid var(--line);
 }
-.background-card {
-  min-width: 0;
-  padding: 22px 24px 24px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--panel) 72%, var(--bg));
-  transition: border-color 0.25s;
-}
-.background-card:hover {
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
-}
-.background-card h3,
-.background-card h4,
-.background-card p,
-.background-card ol,
-.background-card ul {
+.resume h3,
+.resume h4,
+.resume p,
+.resume ol,
+.resume ul,
+.resume dl,
+.resume dd {
   margin: 0;
 }
-.background-card ol,
-.background-card ul {
+.resume ol,
+.resume ul {
   list-style: none;
   padding: 0;
 }
-.background-card .card-label {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding-bottom: 14px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid var(--line);
+.resume-row {
+  display: grid;
+  grid-template-columns: var(--resume-label) minmax(0, 1fr);
+  gap: 16px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+.resume-label {
+  padding-top: 2px;
   color: var(--muted);
   font: 600 11px var(--mono);
   letter-spacing: 1.4px;
+  line-height: 1.6;
   text-transform: uppercase;
 }
-.card-symbol {
-  color: var(--accent);
-  font-size: 13px;
-  letter-spacing: 0;
+.resume-entries {
+  display: grid;
+  gap: 26px;
 }
-/* Experience, education & competitions: a vertical timeline with a dot per entry. */
-.timeline-item {
-  position: relative;
-  padding: 0 0 22px 22px;
+.resume-entry {
+  display: grid;
+  grid-template-columns: var(--resume-gutter) minmax(0, 1fr);
+  gap: 16px;
 }
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  background: var(--bg);
-}
-.timeline-item:first-child::before {
-  background: var(--accent);
-}
-.timeline-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 5.5px;
-  top: 20px;
-  bottom: 2px;
-  width: 1px;
-  background: var(--line);
-}
-.entry-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 6px 14px;
-}
-.background-card h4 {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.1px;
-}
-.entry-period {
-  flex-shrink: 0;
-  color: var(--muted);
-  font: 11px var(--mono);
+.resume-date {
+  padding-top: 3px;
+  color: var(--faint);
+  font: 12px var(--mono);
   letter-spacing: 0.3px;
   white-space: nowrap;
 }
-.entry-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 2px 10px;
-  margin-top: 3px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-.entry-meta > a,
-.entry-org {
-  color: var(--accent);
+.resume-entry h4 {
+  color: var(--text);
+  font-size: 15px;
   font-weight: 600;
+  line-height: 1.5;
 }
-.entry-meta > a {
+.resume-meta {
+  margin-top: 2px !important;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.resume-meta > * + *::before {
+  content: '·';
+  margin: 0 9px;
+  color: var(--faint);
+}
+.resume-meta a {
+  color: var(--accent);
   transition: opacity 0.2s;
 }
-.entry-meta > a:hover {
+.resume-meta a:hover {
   opacity: 0.75;
 }
-.entry-meta > * + *::before {
-  content: '·';
-  margin-right: 10px;
-  color: var(--line);
-}
-.background-card p {
-  margin-top: 8px;
-  color: var(--muted);
+.resume-summary {
+  max-width: 62ch;
+  margin-top: 10px !important;
+  color: var(--subtext);
   font-size: 13px;
   line-height: 1.75;
 }
-/* Competition names link out from the timeline heading. */
-.entry-title-link {
+/* Competitive programming: the result is the headline, the contest is the caption. */
+.contest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.contest {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+  transition: border-color 0.2s;
+}
+.contest:hover {
+  border-color: var(--accent);
+}
+.contest-stat {
+  color: var(--text);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
   transition: color 0.2s;
 }
-.entry-title-link:hover {
+.contest:hover .contest-stat {
   color: var(--accent);
 }
-.skill-group + .skill-group {
-  margin-top: 20px;
-}
-/* Skills: label column + chips, tinted per group like the project-card tags. */
-.skill-groups {
-  margin: 0;
-}
-.skill-group {
-  display: grid;
-  gap: 10px;
-}
-.skill-group dt {
-  color: var(--muted);
-  font: 600 11px var(--mono);
-  letter-spacing: 0.9px;
+.contest-caption {
+  margin-top: 8px;
+  color: var(--subtext);
+  font-size: 12px;
   line-height: 1.6;
-  text-transform: uppercase;
 }
-.skill-group dd {
-  margin: 0;
+.contest-name {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
 }
-.skill-group .skill-list {
+.contest-date {
+  margin-top: 2px;
+  color: var(--faint);
+  font: 12px var(--mono);
+}
+/* Skills: plain lists on the same date gutter as the entries above. */
+.stack {
+  display: grid;
+  gap: 12px;
+}
+.stack-row {
+  display: grid;
+  grid-template-columns: var(--resume-gutter) minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+}
+.stack-row dt {
+  color: var(--faint);
+  font: 12px var(--mono);
+}
+.stack-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
 }
-.skill-list li {
-  --chip: var(--accent);
-  padding: 5px 11px;
-  border: 1px solid color-mix(in srgb, var(--chip) 22%, transparent);
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--chip) 11%, transparent);
-  color: var(--chip);
-  font: 12px var(--mono);
-  letter-spacing: 0.3px;
-  transition:
-    transform 0.2s,
-    background 0.2s;
-}
-.skill-list li:hover {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--chip) 20%, transparent);
-}
-.skill-group:nth-child(4n + 1) li {
-  --chip: var(--green);
-}
-.skill-group:nth-child(4n + 2) li {
-  --chip: var(--blue);
-}
-.skill-group:nth-child(4n + 3) li {
-  --chip: var(--peach);
+.stack-list li + li::before {
+  content: '/';
+  margin: 0 10px;
+  color: var(--faint);
 }
 .more-menu {
   max-height: 70vh;
 }
-@media (min-width: 640px) and (max-width: 1023px) {
-  .background-grid {
-    grid-template-columns: minmax(0, 1fr);
+@media (max-width: 1023px) {
+  .resume {
+    --resume-label: 150px;
+    --resume-gutter: 140px;
+  }
+  .contest-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 28px;
   }
 }
 @media (max-width: 639px) {
@@ -1241,25 +1217,33 @@ footer .brand-mark {
     padding-top: 22px;
     padding-bottom: 48px;
   }
-  .background-grid {
+  .resume-row {
     grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+    gap: 18px;
+    padding: 24px 0;
   }
-  .background-card {
-    padding: 18px;
+  .resume-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
   }
-  .entry-head {
-    flex-direction: column;
-    gap: 0;
+  .resume-date {
+    padding-top: 0;
   }
-  .background-card h4 {
-    font-size: 15px;
-  }
-  .entry-meta {
-    font-size: 13px;
-  }
-  .background-card p {
+  .resume-summary {
     font-size: 14px;
+  }
+  .contest-grid {
+    gap: 24px 16px;
+  }
+  .contest {
+    padding-left: 12px;
+  }
+  .contest-stat {
+    font-size: 26px;
+  }
+  .stack-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
   }
   .more-menu {
     min-width: 150px;

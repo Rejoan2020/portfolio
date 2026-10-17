@@ -94,81 +94,67 @@ export default function HomePage() {
             </h2>
           </div>
         </div>
-        <div className="background-grid">
-          <article className="background-card" id="experience">
-            <h3 className="card-label">
-              <span className="card-symbol">{'->'}</span> Experience
-            </h3>
-            <ol className="timeline">
+        <div className="resume">
+          <div className="resume-row" id="experience">
+            <h3 className="resume-label">Experience</h3>
+            <ol className="resume-entries">
               {experience.map(job => (
-                <li className="timeline-item" key={job.role}>
-                  <div className="entry-head">
+                <li className="resume-entry" key={job.role}>
+                  <span className="resume-date">{job.period}</span>
+                  <div>
                     <h4>{job.role}</h4>
-                    <span className="entry-period">{job.period}</span>
-                  </div>
-                  <div className="entry-meta">
-                    <a href={job.org.url} {...newTab}>
-                      {job.org.name}
-                    </a>
-                    <span>{job.detail}</span>
-                  </div>
-                  <p>{job.summary}</p>
-                </li>
-              ))}
-            </ol>
-          </article>
-          <article className="background-card" id="education">
-            <h3 className="card-label">
-              <span className="card-symbol">▤</span> Education
-            </h3>
-            <ol className="timeline">
-              {education.map(entry => (
-                <li className="timeline-item" key={entry.degree}>
-                  <div className="entry-head">
-                    <h4>{entry.degree}</h4>
-                    <span className="entry-period">{entry.period}</span>
-                  </div>
-                  <div className="entry-meta">
-                    <span className="entry-org">{entry.school}</span>
-                    <span>{entry.result}</span>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </article>
-          <article className="background-card" id="competitions">
-            <h3 className="card-label">
-              <span className="card-symbol">✳</span> Competitive programming
-            </h3>
-            <ol className="timeline">
-              {competitions.map(contest => (
-                <li className="timeline-item" key={contest.name}>
-                  <div className="entry-head">
-                    <h4>
-                      <a className="entry-title-link" href={contest.url} {...newTab}>
-                        {contest.name}
+                    <p className="resume-meta">
+                      <a href={job.org.url} {...newTab}>
+                        {job.org.name}
                       </a>
-                    </h4>
-                    <span className="entry-period">{contest.date}</span>
+                      <span>{job.detail}</span>
+                    </p>
+                    <p className="resume-summary">{job.summary}</p>
                   </div>
-                  <div className="entry-meta">
-                    <span className="entry-org">{contest.highlight}</span>
-                  </div>
-                  <p>{contest.result}</p>
                 </li>
               ))}
             </ol>
-          </article>
-          <article className="background-card" id="skills">
-            <h3 className="card-label">
-              <span className="card-symbol">⌘</span> Skills
-            </h3>
-            <dl className="skill-groups">
+          </div>
+          <div className="resume-row" id="education">
+            <h3 className="resume-label">Education</h3>
+            <ol className="resume-entries">
+              {education.map(entry => (
+                <li className="resume-entry" key={entry.degree}>
+                  <span className="resume-date">{entry.period}</span>
+                  <div>
+                    <h4>{entry.degree}</h4>
+                    <p className="resume-meta">
+                      <span>{entry.school}</span>
+                      <span>{entry.result}</span>
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="resume-row" id="competitions">
+            <h3 className="resume-label">Competitive programming</h3>
+            <ul className="contest-grid">
+              {competitions.map(contest => (
+                <li key={contest.name}>
+                  <a className="contest" href={contest.url} {...newTab}>
+                    <span className="contest-stat">{contest.highlight}</span>
+                    <span className="contest-caption">{contest.result}</span>
+                    <span className="contest-name">{contest.name}</span>
+                    <span className="contest-date">{contest.date}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="resume-row" id="skills">
+            <h3 className="resume-label">Skills</h3>
+            <dl className="stack">
               {skills.map(({ group, items }) => (
-                <div className="skill-group" key={group}>
+                <div className="stack-row" key={group}>
                   <dt>{group}</dt>
                   <dd>
-                    <ul className="skill-list">
+                    <ul className="stack-list">
                       {items.map(item => (
                         <li key={item}>{item}</li>
                       ))}
@@ -177,7 +163,7 @@ export default function HomePage() {
                 </div>
               ))}
             </dl>
-          </article>
+          </div>
         </div>
       </section>
 

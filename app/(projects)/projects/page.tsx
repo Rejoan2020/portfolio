@@ -6,7 +6,7 @@ import { listedProjects } from '@/content/projects';
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Selected projects: Zoinpark, a crypto rewards platform; MedSimAi, an AI-powered medical simulation platform; and Jajabor, a travel guide to Bangladesh.',
+    'Selected projects: Macrokite OS, an internal team workspace; Jajabor, a travel guide to Bangladesh; Zoinpark, a crypto rewards platform; and MedSimAi, an AI-powered medical simulation platform.',
   alternates: { canonical: '/projects' }
 };
 
